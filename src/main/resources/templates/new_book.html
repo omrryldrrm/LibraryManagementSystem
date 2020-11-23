@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Library Management System</title>
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          rel="stylesheet">
+</head>
+
+<body>
+<div class="container">
+    <h1>Library Management System</h1>
+    <hr>
+    <h2>Save Book</h2>
+
+    <form action="#" method="POST" th:action="@{/saveBook}" th:object="${book}">
+        <input class="form-control mb-4 col-4" placeholder="Book Name" th:field="*{bookName}" type="text">
+        <input class="form-control mb-4 col-4" placeholder="Book Subname" th:field="*{bookSubName}" type="text">
+        <input class="form-control mb-4 col-4" placeholder="Book Series Name" th:field="*{bookSeriesName}" type="text">
+
+
+        <select class="form-control mb-4 col-4" id="testAuthor" name="testAuthor" th:field="*{author}">
+            <option value="">Select Author</option>
+            <option th:each="author : ${author}"
+                    th:text="${author.authorName}"
+                    th:value="${author.authorId}"></option>
+        </select>
+
+
+        <select class="form-control mb-4 col-4" id="testPublisher" name="testPublisher" th:field="*{publisher}">
+            <option value="">Select Publisher</option>
+            <option th:each="publisher : ${publisher}"
+                    th:selected="(${publisher.publisherId} == *{publisher})"
+                    th:text="${publisher.publisherName}"
+                    th:value="${publisher.publisherId}"></option>
+        </select>
+
+
+        <!--
+            <input type="hidden" th:field="*{author}" placeholder="Book Author" class="form-control mb-4 col-4">
+            <input type="hidden" th:field="*{publisher}" placeholder="Book Publisher" class="form-control mb-4 col-4">
+         -->
+        <input class="form-control mb-4 col-4" placeholder="Book ISBN Number" th:field="*{bookIsbnNo}" type="text">
+        <input class="form-control mb-4 col-4" placeholder="Book Description" th:field="*{bookDesc}" type="text">
+
+
+        <button class="btn btn-info col-2" type="submit"> Save Book</button>
+    </form>
+    <br>
+
+    <hr>
+
+    <a th:href="@{/}"> Back to Book List</a>
+</div>
+</body>
+
+</html>

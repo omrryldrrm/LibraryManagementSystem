@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Library Management System</title>
+
+    <link crossorigin="anonymous"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="container my-2">
+    <h1>Author List</h1>
+
+    <table border="1" class="table table-striped table-responsive-md">
+        <thead>
+        <tr>
+            <th>Author Name</th>
+            <th>Author Description</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="author : ${listAuthors}">
+            <td th:text="${author.authorName}"></td>
+            <td th:text="${author.authorDesc}"></td>
+            <td><a
+                    class="btn btn-primary"
+                    th:href="@{/showFormForAuthorUpdate/{authorId}(authorId=${author.authorId})}">Update</a>
+
+                <a class="btn btn-danger"
+                   th:href="@{/deleteAuthor/{authorId}(authorId=${author.authorId})}">Delete</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <hr>
+
+    <a th:href="@{/}"> Back to Book List</a>
+</div>
+</body>
+
+</html>
