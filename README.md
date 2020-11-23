@@ -6,7 +6,7 @@
 ## Projenin Kurulum aşaması
 
  - Intelij Idea açıldıktan sonra **File->New->Project From Version Control** adımları takip edilmelidir.
- - Ardından açılan sayfada **Repository URL** yazan kısma https://github.com/omrryldrrm/SpringBootLibrary.git linki yapıştırılmalı ve **Clone** butonuna tıklanmalıdır.
+ - Ardından açılan sayfada **Repository URL** yazan kısma https://github.com/omrryldrrm/LibraryManagementSystem.git linki yapıştırılmalı ve **Clone** butonuna tıklanmalıdır.
  - İde gerekli işlemleri yaptıktan sonra proje çalıştırılır hale gelmiş olmaktadır.
 
 # Veri tabanı düzenlemeleri
